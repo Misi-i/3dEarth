@@ -40,12 +40,12 @@ scene.background = cubeTextureLoader.load([
 
 const textureLoader = new THREE.TextureLoader();
 
-const sunGeo = new THREE.SphereGeometry(16, 30, 30);
-const sunMat = new THREE.MeshBasicMaterial({
+const earthGeo = new THREE.SphereGeometry(16, 30, 30);
+const earthMat = new THREE.MeshBasicMaterial({
     map: textureLoader.load(earthTexture)
 });
-const sun = new THREE.Mesh(sunGeo, sunMat);
-scene.add(sun);
+const earth = new THREE.Mesh(earthGeo, earthMat);
+scene.add(earth);
 
 function createPlanete(size, texture, position, ring) {
     const geo = new THREE.SphereGeometry(size, 30, 30);
@@ -81,7 +81,7 @@ scene.add(pointLight);
 
 function animate() {
     //Self-rotation
-    sun.rotateY(0.004);
+    earth.rotateY(0.004);
     
     
     renderer.render(scene, camera);

@@ -599,12 +599,12 @@ scene.background = cubeTextureLoader.load([
     (0, _worldmap1JpgDefault.default)
 ]);
 const textureLoader = new _three.TextureLoader();
-const sunGeo = new _three.SphereGeometry(16, 30, 30);
-const sunMat = new _three.MeshBasicMaterial({
+const earthGeo = new _three.SphereGeometry(16, 30, 30);
+const earthMat = new _three.MeshBasicMaterial({
     map: textureLoader.load((0, _worldmap1JpgDefault.default))
 });
-const sun = new _three.Mesh(sunGeo, sunMat);
-scene.add(sun);
+const earth = new _three.Mesh(earthGeo, earthMat);
+scene.add(earth);
 function createPlanete(size, texture, position, ring) {
     const geo = new _three.SphereGeometry(size, 30, 30);
     const mat = new _three.MeshStandardMaterial({
@@ -635,7 +635,7 @@ const pointLight = new _three.PointLight(0xFFFFFF, 2, 300);
 scene.add(pointLight);
 function animate() {
     //Self-rotation
-    sun.rotateY(0.004);
+    earth.rotateY(0.004);
     renderer.render(scene, camera);
 }
 renderer.setAnimationLoop(animate);
